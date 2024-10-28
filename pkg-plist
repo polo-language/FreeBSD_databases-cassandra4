@@ -75,7 +75,6 @@
 %%DATADIR%%/lib/ST4-4.0.8.jar
 %%DATADIR%%/lib/stream-2.5.2.jar
 %%AMD64ONLY%%%%DATADIR%%/lib/zstd-jni-%%ZSTDJNI_VERSION%%-freebsd_amd64.jar
-%%I386ONLY%%%%DATADIR%%/lib/zstd-jni-%%ZSTDJNI_VERSION%%-freebsd_i386.jar
 %%DATADIR%%/LICENSE.txt
 %%DATADIR%%/NEWS.txt
 %%DATADIR%%/NOTICE.txt
@@ -147,3 +146,4 @@ bin/sstablescrub
 bin/sstableupgrade
 bin/sstableutil
 bin/sstableverify
+

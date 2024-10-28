@@ -1,9 +1,9 @@
 PORTNAME=	cassandra
-DISTVERSION=	4.1.2
+DISTVERSION=	5.0.2
 CATEGORIES=	databases java
 MASTER_SITES=	https://archive.apache.org/dist/${PORTNAME}/${DISTVERSION}/:apache \
-		https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.0-4/:maven
-PKGNAMESUFFIX=	4
+		https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.6-6/:maven
+PKGNAMESUFFIX=	5
 DISTNAME=	apache-${PORTNAME}-${DISTVERSION}-src
 DISTFILES=	${DISTNAME}.tar.gz:apache \
 		${ZSTD_DISTFILE} \
@@ -33,7 +33,7 @@ CPE_VENDOR=	apache
 
 CONFLICTS=	cassandra3
 
-JAVA_VERSION=	8 11
+JAVA_VERSION=	11
 JAVA_VENDOR=	openjdk
 
 SUB_LIST=	JAVA_HOME=${JAVA_HOME}
@@ -164,16 +164,11 @@ USEJDK11=	-Duse.jdk11=true -Drat.skip=true
 
 .if ${ARCH} == amd64
 PLIST_SUB+=		AMD64ONLY=""
-PLIST_SUB+=		I386ONLY="@comment "
-.elif ${ARCH} == i386
-PLIST_SUB+=		AMD64ONLY="@comment "
-PLIST_SUB+=		I386ONLY=""
 .else
 PLIST_SUB+=		AMD64ONLY="@comment "
-PLIST_SUB+=		I386ONLY="@comment "
 .endif
 
-.if ${ARCH} == amd64 || ${ARCH} == i386
+.if ${ARCH} == amd64
 ZSTD_DISTFILE=	zstd-jni-${MASTER_SITES:M*\:maven:H:T}-freebsd_${ARCH}.jar:maven
 .else
 ZSTD_DISTFILE=
@@ -181,7 +176,7 @@ ZSTD_DISTFILE=
 
 post-install:
 	${LN} -s ${JAVAJARDIR}/netty.jar ${STAGEDIR}${DATADIR}/lib/netty.jar
-.if ${ARCH} == amd64 || ${ARCH} == i386
+.if ${ARCH} == amd64
 	${CP} ${DISTDIR}/${DIST_SUBDIR}/zstd-jni-${ZSTDJNI_VERSION}-freebsd_${ARCH}.jar ${STAGEDIR}${DATADIR}/lib/
 .endif
 
@@ -195,3 +190,4 @@ post-install-SIGAR-on:
 	${LN} -s ${JAVAJARDIR}/sigar.jar ${STAGEDIR}${DATADIR}/lib/sigar.jar
 
 .include <bsd.port.post.mk>
+
