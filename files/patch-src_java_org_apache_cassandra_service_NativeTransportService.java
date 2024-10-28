@@ -1,11 +1,11 @@
---- src/java/org/apache/cassandra/service/NativeTransportService.java.orig	2023-05-25 14:13:38 UTC
-+++ src/java/org/apache/cassandra/service/NativeTransportService.java
-@@ -160,12 +160,15 @@ public class NativeTransportService
+--- src/java/org/apache/cassandra/service/NativeTransportService.java.orig	2024-10-28 19:13:22.155897000 +0800
++++ src/java/org/apache/cassandra/service/NativeTransportService.java	2024-10-28 19:16:58.268428000 +0800
+@@ -167,12 +167,15 @@
       */
      public static boolean useEpoll()
      {
 +        /*
-         final boolean enableEpoll = Boolean.parseBoolean(System.getProperty("cassandra.native.epoll.enabled", "true"));
+         final boolean enableEpoll = NATIVE_EPOLL_ENABLED.getBoolean();
  
          if (enableEpoll && !Epoll.isAvailable() && NativeLibrary.osType == NativeLibrary.OSType.LINUX)
              logger.warn("epoll not available", Epoll.unavailabilityCause());
