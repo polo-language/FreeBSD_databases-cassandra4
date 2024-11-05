@@ -143,8 +143,11 @@ pre-fetch:
 	${MKDIR} ${DISTDIR}/${DIST_SUBDIR}
 	${MKDIR} ${WRKSRC}/.build
 	${MKDIR} ${WRKSRC}/src/java
-	${CP} ${FILESDIR}/maven/build.* ${WRKSRC}
+	${CP} -r ${FILESDIR}/maven/test ${WRKSRC}/
+	${CP} ${FILESDIR}/maven/build.* ${WRKSRC}/
 	${CP} ${FILESDIR}/maven/build-* ${WRKSRC}/.build
+	${CP} -r ${FILESDIR}/maven/owasp ${WRKSRC}/.build
+	${CP} -r ${FILESDIR}/maven/sonar ${WRKSRC}/.build
 	cd ${WRKSRC} && ${ANT} -Dmaven.repo.local=${REPO_DIR} -Dlocal.repository=${REPO_DIR} ${USEJDK11} resolver-dist-lib
 	cd ${REPO_DIR} && ${FIND} . -type f -name "*.repositories" -a -exec ${SED} -i '' -e '2s,.*,Mon Aug 08 20:40:04 CEST 2022,' {} +
 	cd ${WRKDIR} && ${MTREE_CMD} -cbnSp repository | ${MTREE_CMD} -C | ${SED} \
