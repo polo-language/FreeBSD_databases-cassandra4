@@ -1,6 +1,6 @@
---- bin/cqlsh.orig	2023-05-25 14:13:37 UTC
+--- bin/cqlsh.orig	2024-10-12 12:40:42 UTC
 +++ bin/cqlsh
-@@ -90,7 +90,7 @@ if [ "$USER_SPECIFIED_PYTHON" != "" ]; then
+@@ -98,7 +98,7 @@ else
      # run a user specified Python interpreter
      run_if_supported_version "$USER_SPECIFIED_PYTHON" "$@"
  else

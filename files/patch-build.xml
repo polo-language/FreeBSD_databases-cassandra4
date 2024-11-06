@@ -1,6 +1,6 @@
---- build.xml.orig	2024-10-28 18:43:16.392867000 +0800
-+++ build.xml	2024-10-28 18:45:22.641110000 +0800
-@@ -31,6 +31,7 @@
+--- build.xml.orig	2024-10-12 12:40:43 UTC
++++ build.xml
+@@ -31,6 +31,7 @@ -->
      <property file="build.properties.default" />
      <property file="${user.home}/.ant/build.properties"/>
      <property name="debuglevel" value="source,lines,vars"/>
@@ -8,7 +8,7 @@
  
      <!-- default version and SCM information -->
      <property name="base.version" value="5.0.2"/>
-@@ -104,7 +105,7 @@
+@@ -104,7 +105,7 @@ -->
      <condition property="version" value="${base.version}">
        <isset property="release"/>
      </condition>
@@ -17,7 +17,7 @@
      <property name="version.properties.dir"
                value="${build.src.resources}/org/apache/cassandra/config/" />
      <property name="final.name" value="${ant.project.name}-${version}"/>
-@@ -358,6 +359,24 @@
+@@ -358,6 +359,24 @@ -->
              <exclude name="**/ant-*.jar"/>
          </fileset>
      </path>
@@ -42,7 +42,7 @@
  
    <macrodef name="create-javadoc">
      <attribute name="destdir"/>
-@@ -367,7 +386,7 @@
+@@ -367,7 +386,7 @@ -->
          windowtitle="${ant.project.name} API" classpathref="cassandra.classpath"
          bottom="Copyright &amp;copy; 2009- The Apache Software Foundation"
          useexternalfile="yes" encoding="UTF-8" failonerror="false"
@@ -51,7 +51,7 @@
          <filesets/>
        </javadoc>
        <fail message="javadoc failed">
-@@ -476,6 +495,8 @@
+@@ -476,6 +495,8 @@ -->
      <target name="gen-doc" description="Generate documentation" depends="gen-asciidoc,generate-cql-html" unless="ant.gen-doc.skip">
          <exec executable="make" osfamily="unix" dir="${doc.dir}">
              <arg value="html"/>
@@ -60,7 +60,7 @@
          </exec>
      </target>
  
-@@ -908,6 +929,89 @@
+@@ -908,6 +929,90 @@ -->
        </copy>
      </target>
  
@@ -74,6 +74,7 @@
 +          <exclude name="sigar-bin/*"/>
 +          <exclude name="snappy*.jar"/>
 +          <exclude name="netty-all*.jar"/>
++          <exclude name="netty-tcnative-boringssl-static-2.0.61.Final-*.jar"/>
 +          <exclude name="ohc*.jar"/>
 +          <exclude name="licenses/snappy*.txt"/>
 +          <exclude name="licenses/netty-all*.txt"/>
@@ -150,7 +151,7 @@
      <!-- creates release tarballs -->
      <target name="artifacts" depends="_artifacts-init,check,gen-doc,sources-jar"
              description="Create Cassandra tarball and maven artifacts">
-@@ -1198,7 +1302,7 @@
+@@ -1198,7 +1303,7 @@ -->
            <pathelement location="${stress.build.classes}"/>
            <pathelement location="${fqltool.build.classes}"/>
            <pathelement location="${test.classes}"/>

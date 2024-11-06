@@ -1,6 +1,6 @@
---- src/java/org/apache/cassandra/service/StartupChecks.java.orig	2023-05-25 14:13:38 UTC
+--- src/java/org/apache/cassandra/service/StartupChecks.java.orig	2024-10-12 12:40:43 UTC
 +++ src/java/org/apache/cassandra/service/StartupChecks.java
-@@ -363,7 +363,13 @@ public class StartupChecks
+@@ -426,7 +426,13 @@ public class StartupChecks
          {
              if (options.isDisabled(getStartupCheckType()))
                  return;

@@ -1,6 +1,6 @@
---- src/java/org/apache/cassandra/service/NativeTransportService.java.orig	2024-10-28 19:13:22.155897000 +0800
-+++ src/java/org/apache/cassandra/service/NativeTransportService.java	2024-10-28 19:16:58.268428000 +0800
-@@ -167,12 +167,15 @@
+--- src/java/org/apache/cassandra/service/NativeTransportService.java.orig	2024-10-12 12:40:43 UTC
++++ src/java/org/apache/cassandra/service/NativeTransportService.java
+@@ -167,12 +167,15 @@ public class NativeTransportService
       */
      public static boolean useEpoll()
      {

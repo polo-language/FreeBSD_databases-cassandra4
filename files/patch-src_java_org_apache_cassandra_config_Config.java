@@ -1,6 +1,6 @@
---- src/java/org/apache/cassandra/config/Config.java.orig	2023-05-25 14:13:38 UTC
+--- src/java/org/apache/cassandra/config/Config.java.orig	2024-10-12 12:40:43 UTC
 +++ src/java/org/apache/cassandra/config/Config.java
-@@ -437,7 +437,7 @@ public class Config
+@@ -460,7 +460,7 @@ public class Config
      @Replaces(oldName = "key_cache_save_period", converter = Converters.SECONDS_CUSTOM_DURATION)
      public volatile DurationSpec.IntSecondsBound key_cache_save_period = new DurationSpec.IntSecondsBound("4h");
  
