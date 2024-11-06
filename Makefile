@@ -48,18 +48,18 @@ REPO_DIR=	${WRKDIR}/repository
 CONFIG_FILES=	cassandra-env.sh \
 		cassandra-jaas.config \
 		cassandra-rackdc.properties \
-		cassandra-topology.properties \
 		cassandra.yaml \
+		cassandra_latest.yaml \
 		commitlog_archiving.properties \
 		hotspot_compiler \
-		logback-tools.xml \
-		logback.xml \
-		jvm8-clients.options \
-		jvm8-server.options \
 		jvm11-clients.options \
 		jvm11-server.options \
+		jvm17-clients.options \
+		jvm17-server.options \
 		jvm-clients.options \
-		jvm-server.options
+		jvm-server.options \
+		logback-tools.xml \
+		logback.xml
 
 SCRIPT_FILES=	cassandra \
 		nodetool \
