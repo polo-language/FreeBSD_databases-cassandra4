@@ -106,6 +106,7 @@ post-build:
 .for f in ${CONFIG_FILES}
 	@${MV} ${BUILD_DIST_DIR}/conf/${f} ${BUILD_DIST_DIR}/conf/${f}.sample
 .endfor
+	@${MV} ${BUILD_DIST_DIR}/conf/cassandra-topology.properties.example ${BUILD_DIST_DIR}/conf/cassandra-topology.properties.sample
 	@${RM} ${BUILD_DIST_DIR}/lib/licenses/sigar*
 	@${RMDIR} ${BUILD_DIST_DIR}/lib/sigar-bin
 	@${RM} ${BUILD_DIST_DIR}/lib/zstd-jni*

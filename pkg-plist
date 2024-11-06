@@ -155,7 +155,7 @@
 @sample %%ETCDIR%%/cassandra-env.sh.sample
 @sample %%ETCDIR%%/cassandra-jaas.config.sample
 @sample %%ETCDIR%%/cassandra-rackdc.properties.sample
-@sample %%ETCDIR%%/cassandra-topology.properties.example
+@sample %%ETCDIR%%/cassandra-topology.properties.sample
 @sample %%ETCDIR%%/cassandra.yaml.sample
 @sample %%ETCDIR%%/cassandra_latest.yaml.sample
 @sample %%ETCDIR%%/commitlog_archiving.properties.sample
