@@ -192,4 +192,3 @@ post-install-SIGAR-on:
 	${LN} -s ${JAVAJARDIR}/sigar.jar ${STAGEDIR}${DATADIR}/lib/sigar.jar
 
 .include <bsd.port.post.mk>
-
