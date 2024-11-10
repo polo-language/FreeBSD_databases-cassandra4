@@ -31,7 +31,7 @@ SHEBANG_FILES=	bin/cqlsh.py pylib/setup.py
 TEST_TARGET=	test
 CPE_VENDOR=	apache
 
-CONFLICTS=	cassandra3
+CONFLICTS=	cassandra[34]
 
 JAVA_VERSION=	11
 JAVA_VENDOR=	openjdk
