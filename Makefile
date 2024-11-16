@@ -171,16 +171,11 @@ USEJDK11=	-Duse.jdk11=true -Drat.skip=true
 
 .if ${ARCH} == amd64
 PLIST_SUB+=		AMD64ONLY=""
-PLIST_SUB+=		I386ONLY="@comment "
-.elif ${ARCH} == i386
-PLIST_SUB+=		AMD64ONLY="@comment "
-PLIST_SUB+=		I386ONLY=""
 .else
 PLIST_SUB+=		AMD64ONLY="@comment "
-PLIST_SUB+=		I386ONLY="@comment "
 .endif
 
-.if ${ARCH} == amd64 || ${ARCH} == i386
+.if ${ARCH} == amd64
 ZSTD_DISTFILE=	zstd-jni-${MASTER_SITES:M*\:maven:H:T}-freebsd_${ARCH}.jar:maven
 .else
 ZSTD_DISTFILE=
@@ -188,7 +183,7 @@ ZSTD_DISTFILE=
 
 post-install:
 	${LN} -s ${JAVAJARDIR}/netty.jar ${STAGEDIR}${DATADIR}/lib/netty.jar
-.if ${ARCH} == amd64 || ${ARCH} == i386
+.if ${ARCH} == amd64
 	${CP} ${DISTDIR}/${DIST_SUBDIR}/zstd-jni-${ZSTDJNI_VERSION}-freebsd_${ARCH}.jar ${STAGEDIR}${DATADIR}/lib/
 .endif
 
