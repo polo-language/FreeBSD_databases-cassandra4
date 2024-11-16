@@ -48,18 +48,17 @@ REPO_DIR=	${WRKDIR}/repository
 CONFIG_FILES=	cassandra-env.sh \
 		cassandra-jaas.config \
 		cassandra-rackdc.properties \
-		cassandra-topology.properties \
 		cassandra.yaml \
 		commitlog_archiving.properties \
 		hotspot_compiler \
-		logback-tools.xml \
-		logback.xml \
 		jvm8-clients.options \
 		jvm8-server.options \
 		jvm11-clients.options \
 		jvm11-server.options \
 		jvm-clients.options \
-		jvm-server.options
+		jvm-server.options \
+		logback-tools.xml \
+		logback.xml
 
 SCRIPT_FILES=	cassandra \
 		nodetool \
@@ -113,6 +112,8 @@ post-build:
 .for f in ${CONFIG_FILES}
 	@${MV} ${BUILD_DIST_DIR}/conf/${f} ${BUILD_DIST_DIR}/conf/${f}.sample
 .endfor
+	@${MV} ${BUILD_DIST_DIR}/conf/cassandra-topology.properties.example ${BUILD_DIST_DIR}/conf/cassandra-topology.properties.sample
+	@${MV} ${BUILD_DIST_DIR}/conf/metrics-reporter-config-sample.yaml ${BUILD_DIST_DIR}/conf/metrics-reporter-config.yaml.sample
 	@${RM} ${BUILD_DIST_DIR}/lib/licenses/sigar*
 	@${RMDIR} ${BUILD_DIST_DIR}/lib/sigar-bin
 	@${RM} ${BUILD_DIST_DIR}/lib/zstd-jni*
