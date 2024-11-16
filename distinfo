@@ -1,7 +1,7 @@
-TIMESTAMP = 1731757197
+TIMESTAMP = 1731760032
 SHA256 (cassandra/apache-cassandra-4.1.8-src.tar.gz) = fddbee75b7d844047e76c414de10b17326a5654cd90ead30eabacf72b674fb79
 SIZE (cassandra/apache-cassandra-4.1.8-src.tar.gz) = 14872245
 SHA256 (cassandra/zstd-jni-1.5.6-7-freebsd_amd64.jar) = b50239f5e525d62ebc50398ed42a1473c83c3128f34c76755c3b59912123b9ef
 SIZE (cassandra/zstd-jni-1.5.6-7-freebsd_amd64.jar) = 492759
-SHA256 (cassandra/apache-cassandra-4.1.8-repo.tar.xz) = 2f44383b809719bbb0aff22a83f400528d80a3b5308802308a4366673b60611d
-SIZE (cassandra/apache-cassandra-4.1.8-repo.tar.xz) = 78148076
+SHA256 (cassandra/apache-cassandra-4.1.8-repo.tar.xz) = 53f612987fcc2fc79de22362102b4ea77239528e28b84c855dd6b9ca566ca3c9
+SIZE (cassandra/apache-cassandra-4.1.8-repo.tar.xz) = 91746436
