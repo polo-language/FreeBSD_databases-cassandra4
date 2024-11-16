@@ -2,7 +2,7 @@ PORTNAME=	cassandra
 DISTVERSION=	4.1.8
 CATEGORIES=	databases java
 MASTER_SITES=	https://archive.apache.org/dist/${PORTNAME}/${DISTVERSION}/:apache \
-		https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.0-4/:maven
+		https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.6-7/:maven
 PKGNAMESUFFIX=	4
 DISTNAME=	apache-${PORTNAME}-${DISTVERSION}-src
 DISTFILES=	${DISTNAME}.tar.gz:apache \
