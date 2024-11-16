@@ -1,5 +1,5 @@
 PORTNAME=	cassandra
-DISTVERSION=	4.1.2
+DISTVERSION=	4.1.8
 CATEGORIES=	databases java
 MASTER_SITES=	https://archive.apache.org/dist/${PORTNAME}/${DISTVERSION}/:apache \
 		https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.0-4/:maven
@@ -31,7 +31,7 @@ SHEBANG_FILES=	bin/cqlsh.py pylib/setup.py
 TEST_TARGET=	test
 CPE_VENDOR=	apache
 
-CONFLICTS=	cassandra3
+CONFLICTS=	cassandra[35]
 
 JAVA_VERSION=	8 11
 JAVA_VENDOR=	openjdk
@@ -85,6 +85,13 @@ DOCS_BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}sphinx>=0,1:textproc/py-sphinx@${PY_F
 PORTDOCS=		*
 
 MAVEN_CACHE_FILE=	apache-${PORTNAME}-${DISTVERSION}-repo.tar.xz
+
+post-patch:
+	@${REINPLACE_CMD} -e 's|for interpreter in |for interpreter in ${PYTHON_CMD}|' ${WRKSRC}/bin/cqlsh
+	@${REINPLACE_CMD} -e 's|/usr/bin/python3|/usr/bin/${PYTHON_CMD}|' ${WRKSRC}/bin/cqlsh.py
+
+post-patch-DOCS-on:
+	@${REINPLACE_CMD} -e 's|python3|${PYTHON_CMD}|' ${WRKSRC}/doc/Makefile
 
 do-build:
 	@${DO_NADA} # Do nothing: Prevent USE_ANT from running a default build target.
