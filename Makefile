@@ -86,7 +86,7 @@ PORTDOCS=		*
 MAVEN_CACHE_FILE=	apache-${PORTNAME}-${DISTVERSION}-repo.tar.xz
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|for interpreter in |for interpreter in ${PYTHON_CMD}|' ${WRKSRC}/bin/cqlsh
+	@${REINPLACE_CMD} -e 's|for interpreter in |for interpreter in ${PYTHON_CMD} |' ${WRKSRC}/bin/cqlsh
 	@${REINPLACE_CMD} -e 's|/usr/bin/python3|/usr/bin/${PYTHON_CMD}|' ${WRKSRC}/bin/cqlsh.py
 
 post-patch-DOCS-on:
