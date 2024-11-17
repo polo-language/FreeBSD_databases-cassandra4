@@ -2,7 +2,7 @@ PORTNAME=	cassandra
 DISTVERSION=	5.0.2
 CATEGORIES=	databases java
 MASTER_SITES=	https://archive.apache.org/dist/${PORTNAME}/${DISTVERSION}/:apache \
-		https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.6-6/:maven
+		https://repo1.maven.org/maven2/com/github/luben/zstd-jni/1.5.6-7/:maven
 PKGNAMESUFFIX=	5
 DISTNAME=	apache-${PORTNAME}-${DISTVERSION}-src
 DISTFILES=	${DISTNAME}.tar.gz:apache \
@@ -86,8 +86,7 @@ PORTDOCS=		*
 MAVEN_CACHE_FILE=	apache-${PORTNAME}-${DISTVERSION}-repo.tar.xz
 
 post-patch:
-	@${REINPLACE_CMD} -e 's|python3|${PYTHON_CMD}|' ${WRKSRC}/bin/cqlsh
-	@${REINPLACE_CMD} -e 's|python3|${PYTHON_CMD}|' ${WRKSRC}/bin/cqlsh.py
+	@${REINPLACE_CMD} -e 's|for interpreter in |for interpreter in ${PYTHON_CMD} |' ${WRKSRC}/bin/cqlsh
 
 post-patch-DOCS-on:
 	@${REINPLACE_CMD} -e 's|python3|${PYTHON_CMD}|' ${WRKSRC}/doc/Makefile
